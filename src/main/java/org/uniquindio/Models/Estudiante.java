@@ -14,12 +14,13 @@ public class Estudiante {
     private String carrera;
     private int semestreActual;
     private List<Curso> cursosInscritos;
+    private LocalDate fechaIngreso;
 
 
 
     //METODO CONSTRUCTOR
     public Estudiante(String idEstudiante, String nombres, String apellidos, String correoElectronico,
-                      String numeroTelefono, LocalDate fechaNacimiento, String carrera, int semestreActual) {
+                      String numeroTelefono, LocalDate fechaNacimiento, String carrera, int semestreActual, LocalDate fechaIngreso) {
         this.idEstudiante = idEstudiante;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -29,6 +30,7 @@ public class Estudiante {
         this.carrera = carrera;
         this.semestreActual = semestreActual;
         this.cursosInscritos = new ArrayList<>();
+        this.fechaIngreso = fechaIngreso;
     }
 
     //GETTERS Y SETTERS
@@ -104,5 +106,13 @@ public class Estudiante {
 
     public void setCursosInscritos(List<Curso> cursosInscritos) {
         this.cursosInscritos = cursosInscritos;
+    }
+
+    public LocalDate getFechaIngreso() {
+        return fechaIngreso;
+    }
+
+    public void setFechaIngreso(LocalDate fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
     }
 }

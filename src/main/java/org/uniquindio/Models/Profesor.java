@@ -9,15 +9,17 @@ public class Profesor {
     private String nombres;
     private String apellidos;
     private String correoElectronico;
+    private String materia;
     private List<Curso> cursosAsignados;
 
     //METODO CONTRUCTOR
 
-    public Profesor(String idProfesor, String nombres, String apellidos, String correoElectronico,  List<Curso> cursosAsignados) {
+    public Profesor(String idProfesor, String nombres, String apellidos, String correoElectronico, String materia,  List<Curso> cursosAsignados) {
         this.idProfesor = idProfesor;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correoElectronico = correoElectronico;
+        this.materia = materia;
         this.cursosAsignados = new ArrayList<Curso>();
     }
 
@@ -54,6 +56,14 @@ public class Profesor {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+
+    public String getMateria() {
+        return materia;
+    }
+
+    public void setMateria(String materia) {
+        this.materia = materia;
     }
 
     public List<Curso> getCursosAsignados() {
