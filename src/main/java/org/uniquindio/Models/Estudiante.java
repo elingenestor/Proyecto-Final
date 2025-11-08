@@ -115,4 +115,23 @@ public class Estudiante {
     public void setFechaIngreso(LocalDate fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
+
+    //METODO TOSTRING
+
+    @Override
+    public String toString (){
+        return "Estudiante:" +
+                "\n ID del estudiante:" + idEstudiante +
+                "\n nombre: " + nombres +
+                "\n apellidos: " + apellidos +
+                "\n Correo electronico: " + correoElectronico +
+                "\n Numero de contacto: " + numeroTelefono +
+                "\n Fecha de nacimiento:" + fechaNacimiento +
+                "\n Carrera: " + carrera +
+                "\n Semestre actual:" + semestreActual +
+                "\n Fecha de ingreso:" + fechaIngreso +
+                "\n Cursos inscritos:" + (cursosInscritos.isEmpty() ? "Ninguno" : cursosInscritos.size()) +
+                "\n";
+
+    }
 }

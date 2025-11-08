@@ -73,4 +73,18 @@ public class Profesor {
     public void setCursosAsignados(List<Curso> cursosAsignados) {
         this.cursosAsignados = cursosAsignados;
     }
+
+    //METODO TOSTRING
+
+    @Override
+    public String toString() {
+        return "Profesor: " +
+                "\n ID Profesor: " + idProfesor +
+                "\n Nombres: " + nombres +
+                "\n Apellidos: " + apellidos +
+                "\n Correo Electronico: " + correoElectronico +
+                "\n Materia: " + materia +
+                "\n Cursos asignados: " + (cursosAsignados.isEmpty() ? "Ninguno" : cursosAsignados.size()) +
+                "\n";
+    }
 }

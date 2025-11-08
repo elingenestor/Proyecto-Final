@@ -32,7 +32,16 @@ public class EstudianteService {
         return true;
     }
 
-    //BUSCAR ESTUDIANTE POR ID
+    // CREATE - METODO PARA REGISTRAR ESTUDIANTE
+    public boolean registrarEstudiante(Estudiante estudiante){
+        if(esEstudianteValido(estudiante)){
+            estudiantes.add(estudiante);
+            return true;
+        }
+        return false;
+    }
+
+    // READ - BUSCAR ESTUDIANTE POR ID
     public Estudiante buscarPorId(String idEstudiante){
         return estudiantes.stream()
                 .filter(estudiante -> estudiante.getIdEstudiante().equalsIgnoreCase(idEstudiante))
@@ -40,12 +49,52 @@ public class EstudianteService {
                 .orElse(null);
     }
 
-    //METODO PARA REGISTRAR ESTUDIANTE
-    public boolean registrarEstudiante(Estudiante estudiante){
-        if(esEstudianteValido(estudiante)){
-            estudiantes.add(estudiante);
+    // READ - LISTAR A TODOS LOS ESTUDIANTES
+    public List<Estudiante> listarEstudiantes() {
+        return new ArrayList<>(estudiantes); //Se retorna una copia para evitar modificaiones
+    }
+
+    //UPDATE - ACTUALIZAR DATOS DE UN ESTUDIANTE
+    public boolean actualizarEstudiante(String idEstudiante, Estudiante datosActualizados) {
+        Estudiante existente = buscarPorId(idEstudiante);
+        if (existente == null) {
+            System.out.println("Estudiante con ID: " + idEstudiante + "No encontrado.");
+            return false;
+        }
+
+        //ACTUALIZAR SOLO LOS CAMPOS QUE NO SEAN NULOS O VACIOS
+        if (datosActualizados.getNombres() != null && !datosActualizados.getNombres().isBlank())
+            existente.setNombres(datosActualizados.getNombres());
+
+        if (datosActualizados.getApellidos() != null && !datosActualizados.getApellidos().isBlank())
+            existente.setApellidos(datosActualizados.getApellidos());
+
+        if (datosActualizados.getCorreoElectronico() != null && EmailValidador.esEmailValido(datosActualizados.getCorreoElectronico()))
+            existente.setCorreoElectronico(datosActualizados.getCorreoElectronico());
+
+
+        if (datosActualizados.getNumeroTelefono() != null && !datosActualizados.getNumeroTelefono().isBlank())
+            existente.setNumeroTelefono(datosActualizados.getNumeroTelefono());
+
+        if (datosActualizados.getCarrera() != null && !datosActualizados.getCarrera().isBlank())
+            existente.setCarrera(datosActualizados.getCarrera());
+
+        if (datosActualizados.getSemestreActual() > 0)
+            existente.setSemestreActual(datosActualizados.getSemestreActual());
+
+        System.out.println("Estudiante actualizado correctamente.");
+        return true;
+    }
+
+    //DELETE- METODO PARA ELIMINAR ESTUDIANTE
+    public boolean eliminarEstudiante(String idEstudiante) {
+        Estudiante estudiante = buscarPorId(idEstudiante);
+        if (estudiante != null){
+            estudiantes.remove(estudiante);
+            System.out.println("Estudiante eliminado correctamente.");
             return true;
         }
+        System.out.println("Estudiante no encontrado.");
         return false;
     }
 }

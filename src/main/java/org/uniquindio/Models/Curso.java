@@ -52,4 +52,14 @@ public class Curso {
     public void setCupos(int cupos) {
         this.cupos = cupos;
     }
+
+    //METODO TOSTRING
+    @Override
+    public String toString() {
+        return "Curso: " +
+                "\n Nombre del Curso: " + nombreCurso +
+                "\n ID del Curso: " + idCurso +
+                "\n Porfesores asignados al curso: " + (profesorAsignados.isEmpty() ? "Ninguno" : profesorAsignados.size()) +
+                "\n";
+    }
 }
