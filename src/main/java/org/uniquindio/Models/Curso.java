@@ -8,6 +8,7 @@ public class Curso {
     private String idCurso;
     private List<Profesor> profesorAsignados;
     private int cupos;
+    private List<Estudiante> estudiantesInscritos;
 
     //METODO CONSTRUCTOR
 
@@ -53,6 +54,14 @@ public class Curso {
         this.cupos = cupos;
     }
 
+    public List<Estudiante> getEstudiantesInscritos() {
+        return estudiantesInscritos;
+    }
+
+    public void setEstudiantesInscritos(List<Estudiante> estudiantesInscritos) {
+        this.estudiantesInscritos = estudiantesInscritos;
+    }
+
     //METODO TOSTRING
     @Override
     public String toString() {
@@ -60,6 +69,8 @@ public class Curso {
                 "\n Nombre del Curso: " + nombreCurso +
                 "\n ID del Curso: " + idCurso +
                 "\n Porfesores asignados al curso: " + (profesorAsignados.isEmpty() ? "Ninguno" : profesorAsignados.size()) +
+                "\n Cupos disponibles: " + cupos +
+                "n Estudiantes inscritos: " + (estudiantesInscritos.isEmpty() ? "Ninguno" : estudiantesInscritos.size()) +
                 "\n";
     }
 }
