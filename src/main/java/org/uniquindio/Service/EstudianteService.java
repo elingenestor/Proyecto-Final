@@ -26,7 +26,7 @@ public class EstudianteService {
             return false;
 
         //CODIGO UNICO
-        if (buscarPorId(estudiante.getIdEstudiante()) != null)
+        if (buscarEstudiante(estudiante.getIdEstudiante()) != null)
             return false;
 
         return true;
@@ -42,11 +42,15 @@ public class EstudianteService {
     }
 
     // READ - BUSCAR ESTUDIANTE POR ID
-    public Estudiante buscarPorId(String idEstudiante){
-        return estudiantes.stream()
-                .filter(estudiante -> estudiante.getIdEstudiante().equalsIgnoreCase(idEstudiante))
-                .findFirst()
-                .orElse(null);
+    public Estudiante buscarEstudiante(String idEstudiante){
+        for (int i = 0; i < estudiantes.size(); i++) {
+            Estudiante estudiante = estudiantes.get(i);
+
+            if(estudiante.getIdEstudiante().equals(idEstudiante)){
+                return estudiante;
+            }
+        }
+        return null;
     }
 
     // READ - LISTAR A TODOS LOS ESTUDIANTES
@@ -56,7 +60,7 @@ public class EstudianteService {
 
     //UPDATE - ACTUALIZAR DATOS DE UN ESTUDIANTE
     public boolean actualizarEstudiante(String idEstudiante, Estudiante datosActualizados) {
-        Estudiante existente = buscarPorId(idEstudiante);
+        Estudiante existente = buscarEstudiante(idEstudiante);
         if (existente == null) {
             System.out.println("Estudiante con ID: " + idEstudiante + "No encontrado.");
             return false;
@@ -88,7 +92,7 @@ public class EstudianteService {
 
     //DELETE- METODO PARA ELIMINAR ESTUDIANTE
     public boolean eliminarEstudiante(String idEstudiante) {
-        Estudiante estudiante = buscarPorId(idEstudiante);
+        Estudiante estudiante = buscarEstudiante(idEstudiante);
         if (estudiante != null){
             estudiantes.remove(estudiante);
             System.out.println("Estudiante eliminado correctamente.");

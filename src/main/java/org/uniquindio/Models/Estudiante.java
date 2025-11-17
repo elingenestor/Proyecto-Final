@@ -17,7 +17,6 @@ public class Estudiante {
     private LocalDate fechaIngreso;
 
 
-
     //METODO CONSTRUCTOR
     public Estudiante(String idEstudiante, String nombres, String apellidos, String correoElectronico,
                       String numeroTelefono, LocalDate fechaNacimiento, String carrera, int semestreActual, LocalDate fechaIngreso) {

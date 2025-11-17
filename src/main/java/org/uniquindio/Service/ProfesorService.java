@@ -27,7 +27,7 @@ public class ProfesorService {
             return false;
 
         //CODIGO UNICO
-        if(buscarPorId(profesor.getIdProfesor()) != null)
+        if(buscarProfesor(profesor.getIdProfesor()) != null)
             return false;
 
         //VALIDAR QUE NO ESTE ASOGNADO DOS VECES AL MISMO CURSO
@@ -49,7 +49,7 @@ public class ProfesorService {
     }
 
     //READ- BUSCAR PROFESOR POR ID
-    public Profesor buscarPorId(String idProfesor) {
+    public Profesor buscarProfesor(String idProfesor) {
         return profesores.stream()
                 .filter(profesor -> profesor.getIdProfesor().equalsIgnoreCase(idProfesor))
                 .findFirst()
@@ -63,7 +63,7 @@ public class ProfesorService {
 
     //UPDATE - ACTUALIZAR LOS DATOS DE UN PROFESOR
     public boolean actualizarProfesor(String idProfesor, Profesor datosNuevos) {
-        Profesor existente = buscarPorId(idProfesor);
+        Profesor existente = buscarProfesor(idProfesor);
         if (existente == null){
             System.out.println("ID del Profesor: " + idProfesor + "no encontrado.");
             return false;
@@ -98,10 +98,9 @@ public class ProfesorService {
 
     //DELETE - METODO PARA ELIMINAR PROFESOR
     public boolean eliminarProfesor(String idProfesor) {
-        Profesor profesor = buscarPorId(idProfesor);
+        Profesor profesor = buscarProfesor(idProfesor);
         if (profesor != null) {
             profesores.remove(profesor);
-            System.out.println("Profesor eliminado correctamente.");
             return true;
         }
         System.out.println("Profesor no encontrado.");
