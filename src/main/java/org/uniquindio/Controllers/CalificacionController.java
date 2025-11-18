@@ -48,14 +48,7 @@ public class CalificacionController {
 
         // UPDATE
 
-        public boolean actualizarCalificacion(String idEstudiante,
-                                              String idCurso,
-                                              LocalDate fechaOriginal,
-                                              double nuevoValor,
-                                              double nuevoPorcentaje,
-                                              LocalDate nuevaFecha,
-                                              TipoCalificacion tipo,
-                                              String observaciones) {
+        public boolean actualizarCalificacion(String idEstudiante, String idCurso, LocalDate fechaOriginal, double nuevoValor, double nuevoPorcentaje, LocalDate nuevaFecha, TipoCalificacion tipo, String observaciones) {
 
             Calificacion nueva = new Calificacion(nuevoValor, idEstudiante, idCurso);
             nueva.setPorcentaje(nuevoPorcentaje);
