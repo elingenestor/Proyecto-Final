@@ -170,5 +170,40 @@ public class InscripcionController {
 
         lista.forEach(ins -> System.out.println("Estudiante: " + ins.getIdEstudiante()));
     }
+
+    public void menuInscripciones() {
+        int opcion = 0;
+
+        do {
+            System.out.println("\n===== MENÚ INSCRIPCIONES =====");
+            System.out.println("1. Registrar inscripción");
+            System.out.println("2. Listar inscripciones");
+            System.out.println("3. Buscar inscripción");
+            System.out.println("4. Actualizar inscripción");
+            System.out.println("5. Eliminar inscripción");
+            System.out.println("6. Listar por estudiante");
+            System.out.println("7. Listar por curso");
+            System.out.println("0. Volver al menú principal");
+            System.out.print("Seleccione una opción: ");
+
+            try {
+                opcion = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                opcion = -1;
+            }
+
+            switch (opcion) {
+                case 1 -> registrarInscripcion();
+                case 2 -> listarInscripciones();
+                case 3 -> buscarInscripcion();
+                case 4 -> actualizarInscripcion();
+                case 5 -> eliminarInscripcion();
+                case 6 -> listarPorEstudiante();
+                case 7 -> listarPorCurso();
+                case 0 -> System.out.println("Volviendo al menú principal...");
+                default -> System.out.println("Opción inválida.");
+            }
+        } while (opcion != 0);
+    }
 }
 

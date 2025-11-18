@@ -19,9 +19,9 @@ public class CalificacionService {
         this.cursos = cursos != null ? cursos : new ArrayList<>();
     }
 
-    // ---------------------------------------------------------
+
     // VALIDACIÓN
-    // ---------------------------------------------------------
+
     public boolean esCalificacionValida(Calificacion c) {
         if (c == null) return false;
         if (c.getValor() < 0 || c.getValor() > 5) return false;
@@ -39,9 +39,9 @@ public class CalificacionService {
         return true;
     }
 
-    // ---------------------------------------------------------
+
     // CREATE - Registrar calificación
-    // ---------------------------------------------------------
+
     public boolean registrarCalificacion(Calificacion c) {
         if (!esCalificacionValida(c)) {
             System.out.println("Calificación inválida.");
@@ -57,9 +57,9 @@ public class CalificacionService {
         return true;
     }
 
-    // ---------------------------------------------------------
+
     // READ - Buscar calificación por estudiante y curso
-    // ---------------------------------------------------------
+
     public List<Calificacion> buscarPorEstudianteCurso(String idEst, String idCurso) {
         List<Calificacion> result = new ArrayList<>();
 
@@ -85,16 +85,16 @@ public class CalificacionService {
         return null;
     }
 
-    // ---------------------------------------------------------
+
     // READ - Listar todas
-    // ---------------------------------------------------------
+
     public List<Calificacion> listarCalificaciones() {
         return new ArrayList<>(calificaciones);
     }
 
-    // ---------------------------------------------------------
+
     // UPDATE - Modificar calificación
-    // ---------------------------------------------------------
+
     public boolean actualizarCalificacion(String idEst, String idCurso, LocalDate fechaOriginal, Calificacion nueva) {
 
         Calificacion existente = buscarEspecifica(idEst, idCurso, fechaOriginal);
@@ -121,9 +121,9 @@ public class CalificacionService {
         return true;
     }
 
-    // ---------------------------------------------------------
+
     // DELETE - Eliminar calificación
-    // ---------------------------------------------------------
+
     public boolean eliminarCalificacion(String idEst, String idCurso, LocalDate fecha) {
         Calificacion c = buscarEspecifica(idEst, idCurso, fecha);
 
@@ -137,9 +137,9 @@ public class CalificacionService {
         return true;
     }
 
-    // ---------------------------------------------------------
+
     // Helpers
-    // ---------------------------------------------------------
+
     private Estudiante buscarEstudiante(String id) {
         return estudiantes.stream()
                 .filter(e -> e.getIdEstudiante().equalsIgnoreCase(id))

@@ -13,9 +13,12 @@ public class Inscripcion {
     private Modalidad modalidad;
     private LocalDate fechaCancelacion;
 
-    //METODO CONSTRUCTOR
-    public Inscripcion (String idInscripcion, String idEstudiante, String cursoId, LocalDate fechaInscripcion,
-                        String periodo, EstadoInscripcion estadoInscripcion, Modalidad modalidad, LocalDate fechaCancelacion) {
+
+    public Inscripcion() {
+    }
+
+    // Constructor completo
+    public Inscripcion(String idInscripcion, String idEstudiante, String cursoId, LocalDate fechaInscripcion, String periodo, EstadoInscripcion estadoInscripcion, Modalidad modalidad, LocalDate fechaCancelacion) {
         this.idInscripcion = idInscripcion;
         this.idEstudiante = idEstudiante;
         this.cursoId = cursoId;
@@ -90,5 +93,19 @@ public class Inscripcion {
 
     public void setFechaCancelacion(LocalDate fechaCancelacion) {
         this.fechaCancelacion = fechaCancelacion;
+    }
+
+    //METODO TO STRING
+    @Override
+    public String toString() {
+        return "Inscripcion" +
+                "\n idInscripcion: " + idInscripcion +
+                "\n idEstudiante: " + idEstudiante +
+                "\n cursoId: " + cursoId +
+                "\n fechaInscripcion: " + fechaInscripcion +
+                "\n periodo: " + periodo +
+                "\n estadoInscripcion: " + estadoInscripcion +
+                "\n modalidad: " + modalidad +
+                "\n fechaCancelacion: " + fechaCancelacion;
     }
 }

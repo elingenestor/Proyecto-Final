@@ -75,4 +75,17 @@ public class Calificacion {
     public void setTipoCalificacion(TipoCalificacion tipoCalificacion) {
         this.tipoCalificacion = tipoCalificacion;
     }
+
+    //METODO TO STRING
+    @Override
+    public String toString() {
+        return "Calificacion" +
+                "\n valor: " + valor +
+                "\n idEstudiante: '" + idEstudiante + '\'' +
+                "\n idCurso: " + idCurso + '\'' +
+                "\n porcentaje: " + porcentaje +
+                "\n fecha: " + fecha +
+                "\n observaciones: " + observaciones + '\'' +
+                "\n tipoCalificacion: " + tipoCalificacion;
+    }
 }
